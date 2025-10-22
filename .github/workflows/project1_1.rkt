@@ -1,13 +1,12 @@
-#lang racket
+ #lang racket
 
-(define (main-loop)
-  (display "Enter input: ")
-  (define input (read-line))
-  (cond
-    [(eof-object? input) (void)]
-    [(string=? input "quit") (void)]
-    [else
-     (displayln input)
-     (main-loop)]))
+ (define (main-loop)
+   (display "> ")
+   (define inp (read-line))
+   (cond
+     [(eof-object? inp) (void)]
+     [else
+      (displayln inp)
+      (main-loop)]))
 
-(main-loop)
+ (main-loop)
