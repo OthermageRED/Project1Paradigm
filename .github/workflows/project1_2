@@ -1,0 +1,17 @@
+#lang racket
+
+(define (tokenize str)
+  (filter (lambda (s) (not (string=? s "")))
+          (regexp-split #px"\\s+" str)))
+
+(define (main-loop)
+  (display "Enter input: ")
+  (define input (read-line))
+  (cond
+    [(eof-object? input) (void)]
+    [(string=? input "quit") (void)]
+    [else
+     (displayln (tokenize input))
+     (main-loop)]))
+
+(main-loop)
